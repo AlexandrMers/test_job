@@ -1,11 +1,9 @@
 import React, { FC } from "react";
 
-const App: FC<{ pp?: string }> = () => {
-  const x = 0;
+import Pages from "./pages";
 
-  console.log(x);
-
-  return <div>Тестовое задание</div>;
+const App: FC = () => {
+  return <Pages />;
 };
 
 export default App;
