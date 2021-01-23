@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { FC } from "react";
 
+const App: FC<{ pp?: string }> = () => {
+  const x = 0;
 
-function App() {
-  return (
-    <div>
-      Тестовое задание
-    </div>
-  );
-}
+  console.log(x);
+
+  return <div>Тестовое задание</div>;
+};
 
 export default App;
