@@ -4,6 +4,7 @@ import { IdentityType } from "../types";
 import { getColor } from "./colors";
 
 type cssValuesBlock = "none" | "inline" | "block" | "inline-block";
+type PositionBlockTypes = "absolute" | "relative" | "static" | "fixed";
 
 export const inputDecoratedStyles = css`
   background-color: ${getColor("greyLight")};
@@ -101,3 +102,19 @@ export const pointer = css`
 export const selectNone = css`
   user-select: none;
 `;
+
+export const color = memoizeWith(
+  identity as IdentityType<string>,
+  (value: string) =>
+    css`
+      color: ${value};
+    `
+);
+
+export const position = memoizeWith(
+  identity as IdentityType<PositionBlockTypes>,
+  (value: PositionBlockTypes) =>
+    css`
+      position: ${value};
+    `
+);

@@ -8,7 +8,8 @@ import Input, { InputTypes } from "../Input";
 import { marginBottom } from "../../libs/styles";
 import Button from "../../primitives/Button";
 import Flex, { ALIGN_CONTENT } from "primitives/Flex";
-import CustomSelect from "../../primitives/CustomSelect";
+import CustomSelect from "../CustomSelect";
+import { SuggestInterface } from "../CustomSelect/types";
 
 const StyledForm = styled.form``;
 
@@ -20,6 +21,10 @@ const Form: FC<FormComponentPropsInterface> = ({ stylesWrap }) => {
   const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert("Форма отправлена епт");
+  }, []);
+
+  const onSelectSex = useCallback((item: SuggestInterface) => {
+    console.log("selected sex item -> ", item);
   }, []);
 
   return (
@@ -57,7 +62,20 @@ const Form: FC<FormComponentPropsInterface> = ({ stylesWrap }) => {
       </Block>
 
       <Block>
-        <CustomSelect />
+        <CustomSelect
+          onSelect={onSelectSex}
+          items={[
+            {
+              title: "Мужской",
+              code: "male"
+            },
+            {
+              title: "Женский",
+              code: "female"
+            }
+          ]}
+          selectedItem={null}
+        />
       </Block>
 
       <Flex jc={ALIGN_CONTENT.END} ai={ALIGN_CONTENT.CENTER}>
