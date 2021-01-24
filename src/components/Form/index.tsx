@@ -8,6 +8,7 @@ import Input, { InputTypes } from "../Input";
 import { marginBottom } from "../../libs/styles";
 import Button from "../../primitives/Button";
 import Flex, { ALIGN_CONTENT } from "primitives/Flex";
+import CustomSelect from "../../primitives/CustomSelect";
 
 const StyledForm = styled.form``;
 
@@ -53,6 +54,10 @@ const Form: FC<FormComponentPropsInterface> = ({ stylesWrap }) => {
           type={InputTypes.TEXT}
           placeholder="Отчество"
         />
+      </Block>
+
+      <Block>
+        <CustomSelect />
       </Block>
 
       <Flex jc={ALIGN_CONTENT.END} ai={ALIGN_CONTENT.CENTER}>

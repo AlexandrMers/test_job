@@ -1,8 +1,22 @@
 import { identity, memoizeWith } from "ramda";
 import { css } from "styled-components/macro";
 import { IdentityType } from "../types";
+import { getColor } from "./colors";
 
 type cssValuesBlock = "none" | "inline" | "block" | "inline-block";
+
+export const inputDecoratedStyles = css`
+  background-color: ${getColor("greyLight")};
+  width: 100%;
+  display: block;
+  padding: 15px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 16px;
+  font-weight: 400;
+  color: ${getColor("colorBlack")};
+`;
 
 export const display = memoizeWith(
   identity as IdentityType<cssValuesBlock>,
@@ -79,3 +93,11 @@ export const padding = memoizeWith(
       padding: ${value};
     `
 );
+
+export const pointer = css`
+  cursor: pointer;
+`;
+
+export const selectNone = css`
+  user-select: none;
+`;

@@ -22,11 +22,16 @@ export const TypographyStyled = styled.span`
 
 const Typography: FC<TypographyPropsComponentInterface> = ({
   children,
-  type
+  type,
+  styles
 }) => {
   const typeTypography = useMemo(() => TypographyTypesMap[type], [type]);
 
-  return <TypographyStyled css={typeTypography}>{children}</TypographyStyled>;
+  return (
+    <TypographyStyled css={[typeTypography, styles]}>
+      {children}
+    </TypographyStyled>
+  );
 };
 
 export default React.memo(Typography);

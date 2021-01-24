@@ -1,18 +1,11 @@
 import React, { FC, ChangeEvent, memo, useCallback } from "react";
 import styled from "styled-components";
-import { getColor } from "../../libs/colors";
+
+import { getColor } from "libs/colors";
+import { inputDecoratedStyles } from "libs/styles";
 
 const InputStyled = styled.input`
-  background-color: ${getColor("greyLight")};
-  width: 100%;
-  display: block;
-  padding: 15px;
-  border-radius: 3px;
-  font-size: 14px;
-  font-family: "Open Sans", sans-serif;
-  line-height: 16px;
-  font-weight: 400;
-  color: ${getColor("colorBlack")};
+  ${inputDecoratedStyles};
 
   ::-webkit-input-placeholder {
     color: ${getColor("greyDarken1")};

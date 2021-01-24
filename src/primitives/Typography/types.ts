@@ -10,4 +10,5 @@ export enum TypographyTypes {
 export interface TypographyPropsComponentInterface {
   type: TypographyTypes;
   children: ReactNode;
+  styles?: any;
 }
