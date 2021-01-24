@@ -4,7 +4,6 @@ import styled from "styled-components/macro";
 import {
   fullHeight,
   fullWidth,
-  inputDecoratedStyles,
   marginBottom,
   marginLeft,
   position,
@@ -99,7 +98,7 @@ const Form: FC<FormComponentPropsInterface> = ({ stylesWrap }) => {
             position("relative")
           ]}
         >
-          <DatePickerCmp />
+          <DatePickerCmp onChange={(date) => console.log(date)} />
         </Block>
       </Flex>
 

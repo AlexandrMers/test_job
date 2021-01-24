@@ -10,12 +10,16 @@ import { DatePickerWrapper } from "./styled";
 
 import { renderHeaders } from "./Header";
 
-const DatePickerCmp = () => {
+const DatePickerCmp = ({ onChange }: { onChange: (date: Date) => void }) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
-  const onDateChange = useCallback((date: Date) => {
-    setSelectedDate(date);
-  }, []);
+  const onDateChange = useCallback(
+    (date: Date) => {
+      setSelectedDate(date);
+      onChange(date);
+    },
+    [onChange]
+  );
 
   return (
     <DatePickerWrapper>
