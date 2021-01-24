@@ -1,15 +1,26 @@
 import React, { FC, FormEvent, useCallback } from "react";
 import styled from "styled-components/macro";
 
-import Block from "primitives/Block";
+import {
+  fullHeight,
+  fullWidth,
+  inputDecoratedStyles,
+  marginBottom,
+  marginLeft,
+  position,
+  width
+} from "libs/styles";
 
+import InputTel from "components/InputTel";
 import Input, { InputTypes } from "../Input";
 
-import { fullHeight, marginBottom, marginLeft, width } from "../../libs/styles";
-import Button from "../../primitives/Button";
+import Block from "primitives/Block";
+import Button from "primitives/Button";
 import Flex, { ALIGN_CONTENT } from "primitives/Flex";
+
 import CustomSelect from "../CustomSelect";
 import { SuggestInterface } from "../CustomSelect/types";
+import DatePickerCmp from "../DatePicker";
 
 const StyledForm = styled.form``;
 
@@ -72,7 +83,7 @@ const Form: FC<FormComponentPropsInterface> = ({ stylesWrap }) => {
         />
       </Block>
 
-      <Flex jc={ALIGN_CONTENT.BETWEEN}>
+      <Flex styles={marginBottom(15)} jc={ALIGN_CONTENT.BETWEEN}>
         <Block styles={width("calc(50% - 10px)")}>
           <CustomSelect
             onSelect={onSelectSex}
@@ -81,16 +92,59 @@ const Form: FC<FormComponentPropsInterface> = ({ stylesWrap }) => {
           />
         </Block>
 
+        <Block
+          styles={[
+            width("calc(50% - 10px)"),
+            marginLeft(15),
+            position("relative")
+          ]}
+        >
+          <DatePickerCmp />
+        </Block>
+      </Flex>
+
+      <Flex styles={marginBottom(15)} jc={ALIGN_CONTENT.BETWEEN}>
+        <Block styles={width("calc(50% - 10px)")}>
+          <InputTel
+            onChange={(val) => {
+              console.log("tel -> ", val);
+            }}
+            placeholder="Номер телефона"
+            name="phone"
+            mask="+7 (999) 999 99 99"
+          />
+        </Block>
+
         <Block styles={[width("calc(50% - 10px)"), marginLeft(15)]}>
           <Input
             styles={fullHeight}
-            placeholder="name"
-            name="sdfsdf"
+            placeholder="Email (Необязательно)"
+            name="Email"
             onChange={() => {}}
             type={InputTypes.TEXT}
           />
         </Block>
       </Flex>
+
+      <Block styles={[fullWidth, marginBottom(15)]}>
+        <Input
+          styles={fullHeight}
+          placeholder="Адрес постоянной регистрации"
+          name="address"
+          onChange={() => {}}
+          type={InputTypes.TEXT}
+        />
+      </Block>
+
+      <Block styles={[fullWidth, marginBottom(15)]}>
+        <Input
+          styles={fullHeight}
+          placeholder="Название работодателя"
+          name="workName"
+          onChange={() => {}}
+          type={InputTypes.TEXT}
+        />
+      </Block>
 
       <Flex jc={ALIGN_CONTENT.END} ai={ALIGN_CONTENT.CENTER}>
         <Button

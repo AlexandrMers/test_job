@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { FlexComponentPropsInterface } from "./types";
 
 export const FlexDiv = styled.div`

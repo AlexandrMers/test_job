@@ -1,4 +1,6 @@
 import React, { FC, memo } from "react";
+import "styled-components/macro";
+
 import { FlexDiv } from "./styled";
 
 import { FlexComponentPropsInterface } from "./types";
