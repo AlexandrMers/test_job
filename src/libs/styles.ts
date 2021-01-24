@@ -67,8 +67,20 @@ export const marginTop = memoizeWith(
     `
 );
 
+export const marginLeft = memoizeWith(
+  identity as IdentityType<any>,
+  (value: number) =>
+    css`
+      margin-left: ${value}px;
+    `
+);
+
 export const fullWidth = css`
   width: 100%;
+`;
+
+export const fullHeight = css`
+  height: 100%;
 `;
 
 export const width = memoizeWith(

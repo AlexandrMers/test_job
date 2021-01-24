@@ -1,7 +1,7 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 import "styled-components/macro";
 
-import { color, display, position, selectNone } from "libs/styles";
+import { color, display, fullWidth, position, selectNone } from "libs/styles";
 import { getColor } from "libs/colors";
 
 import Block from "primitives/Block";
@@ -75,7 +75,7 @@ const CustomSelect: FC<CustomSelectComponentPropsInterface> = ({
 
   return (
     <ClickOutside handleClickOut={() => toggleShow(true)}>
-      <Block styles={[selectNone, position("relative")]}>
+      <Block styles={[fullWidth, selectNone, position("relative")]}>
         <DropdownItem onClick={() => toggleShow()} ref={itemElementRef}>
           <SelectTopSign css={isShowLists ? color(getColor("green")) : null}>
             Пол

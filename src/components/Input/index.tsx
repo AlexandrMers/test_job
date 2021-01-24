@@ -1,5 +1,5 @@
 import React, { FC, ChangeEvent, memo, useCallback } from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 import { getColor } from "libs/colors";
 import { inputDecoratedStyles } from "libs/styles";
@@ -32,13 +32,15 @@ interface InputComponentPropsInterface {
   name: string;
   placeholder?: string;
   type?: InputTypes;
+  styles?: any;
 }
 
 const Input: FC<InputComponentPropsInterface> = ({
   onChange: onChangeProps,
   name,
   type = InputTypes.TEXT,
-  placeholder
+  placeholder,
+  styles
 }) => {
   const onChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -53,6 +55,7 @@ const Input: FC<InputComponentPropsInterface> = ({
       name={name}
       type={type}
       placeholder={placeholder}
+      css={styles}
     />
   );
 };

@@ -5,7 +5,7 @@ import Block from "primitives/Block";
 
 import Input, { InputTypes } from "../Input";
 
-import { marginBottom } from "../../libs/styles";
+import { fullHeight, marginBottom, marginLeft, width } from "../../libs/styles";
 import Button from "../../primitives/Button";
 import Flex, { ALIGN_CONTENT } from "primitives/Flex";
 import CustomSelect from "../CustomSelect";
@@ -16,6 +16,17 @@ const StyledForm = styled.form``;
 interface FormComponentPropsInterface {
   stylesWrap?: any;
 }
+
+const itemsSelect: SuggestInterface[] = [
+  {
+    title: "Мужской",
+    code: "male"
+  },
+  {
+    title: "Женский",
+    code: "female"
+  }
+];
 
 const Form: FC<FormComponentPropsInterface> = ({ stylesWrap }) => {
   const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
@@ -61,25 +72,29 @@ const Form: FC<FormComponentPropsInterface> = ({ stylesWrap }) => {
         />
       </Block>
 
-      <Block>
-        <CustomSelect
-          onSelect={onSelectSex}
-          items={[
-            {
-              title: "Мужской",
-              code: "male"
-            },
-            {
-              title: "Женский",
-              code: "female"
-            }
-          ]}
-          selectedItem={null}
-        />
-      </Block>
+      <Flex jc={ALIGN_CONTENT.BETWEEN}>
+        <Block styles={width("calc(50% - 10px)")}>
+          <CustomSelect
+            onSelect={onSelectSex}
+            items={itemsSelect}
+            selectedItem={null}
+          />
+        </Block>
+
+        <Block styles={[width("calc(50% - 10px)"), marginLeft(15)]}>
+          <Input
+            styles={fullHeight}
+            placeholder="name"
+            name="sdfsdf"
+            onChange={() => {}}
+            type={InputTypes.TEXT}
+          />
+        </Block>
+      </Flex>
 
       <Flex jc={ALIGN_CONTENT.END} ai={ALIGN_CONTENT.CENTER}>
         <Button
+          styles={width("calc(50% - 10px)")}
           htmlTypeBtn="submit"
           text="Сохранить"
           maxWidth="50%"

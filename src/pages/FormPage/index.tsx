@@ -10,7 +10,7 @@ import { marginTop, maxWidth, padding, width } from "../../libs/styles";
 
 const FormPage: FC = () => {
   return (
-    <Block styles={[width("100%"), maxWidth("500px"), padding("25px")]}>
+    <Block styles={[width("100%"), maxWidth("768px"), padding("25px")]}>
       <Typography type={TypographyTypes.BOLD_TITLE}>
         Информация о сотруднике
       </Typography>
