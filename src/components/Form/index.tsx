@@ -6,6 +6,8 @@ import Block from "primitives/Block";
 import Input, { InputTypes } from "../Input";
 
 import { marginBottom } from "../../libs/styles";
+import Button from "../../primitives/Button";
+import Flex, { ALIGN_CONTENT } from "primitives/Flex";
 
 const StyledForm = styled.form``;
 
@@ -53,7 +55,14 @@ const Form: FC<FormComponentPropsInterface> = ({ stylesWrap }) => {
         />
       </Block>
 
-      <button>Отправить</button>
+      <Flex jc={ALIGN_CONTENT.END} ai={ALIGN_CONTENT.CENTER}>
+        <Button
+          htmlTypeBtn="submit"
+          text="Сохранить"
+          maxWidth="50%"
+          typeDecoration="green"
+        />
+      </Flex>
     </StyledForm>
   );
 };

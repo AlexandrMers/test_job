@@ -3,7 +3,12 @@ import { IdentityType } from "../types";
 
 export const colors = {
   greyLight: "#f0f0f0",
-  greyDarken1: "#a4a4a4"
+  greyLight2: "#cccccc",
+  greyDarken1: "#a4a4a4",
+  colorWhite: "#ffffff",
+  colorBlack: "#000000",
+  green: "#5db675",
+  blue: "#589cf4"
 };
 
 export const getColor = memoizeWith(

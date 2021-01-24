@@ -12,18 +12,18 @@ const InputStyled = styled.input`
   font-family: "Open Sans", sans-serif;
   line-height: 16px;
   font-weight: 400;
-  color: #000000;
+  color: ${getColor("colorBlack")};
 
   ::-webkit-input-placeholder {
-    color: #a4a4a4;
+    color: ${getColor("greyDarken1")};
   }
   ::-moz-placeholder {
-    color: #a4a4a4;
+    color: ${getColor("greyDarken1")};
   }
   :-moz-placeholder {
-    color: #a4a4a4;
+    color: ${getColor("greyDarken1")};
   :-ms-input-placeholder {
-    color: #a4a4a4;
+    color: ${getColor("greyDarken1")};
   }
 `;
 

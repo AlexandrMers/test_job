@@ -1,6 +1,7 @@
 import React, { FC, memo } from "react";
-import { FlexComponentPropsInterface } from "./types";
 import { FlexDiv } from "./styled";
+
+import { FlexComponentPropsInterface } from "./types";
 
 export enum ALIGN_CONTENT {
   CENTER = "center",

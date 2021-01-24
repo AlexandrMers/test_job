@@ -5,6 +5,7 @@ import Form from "components/Form";
 import Block from "primitives/Block";
 import Typography from "primitives/Typography";
 import { TypographyTypes } from "primitives/Typography/types";
+
 import { marginTop, maxWidth, padding, width } from "../../libs/styles";
 
 const FormPage: FC = () => {
