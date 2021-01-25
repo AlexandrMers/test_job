@@ -17,5 +17,5 @@ export interface DropdownListPropsInterface {
 export interface CustomSelectComponentPropsInterface {
   onSelect: (item: SuggestInterface) => void;
   items: SuggestInterface[];
-  selectedItem: SuggestInterface | null;
+  selectedItem: SuggestInterface["code"] | null;
 }

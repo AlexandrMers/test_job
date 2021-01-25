@@ -1,12 +1,25 @@
 import React, { FC, ChangeEvent, memo, useCallback } from "react";
-import styled from "styled-components/macro";
+import styled, { css } from "styled-components/macro";
 
 import { getColor } from "libs/colors";
-import { inputDecoratedStyles } from "libs/styles";
+import {
+  errorFieldStyles,
+  fullHeight,
+  fullWidth,
+  inputDecoratedStyles,
+  position
+} from "libs/styles";
+import Block from "../../primitives/Block";
 
 const InputStyled = styled.input`
   ${inputDecoratedStyles};
-
+  
+  ${({ error }: Omit<InputComponentPropsInterface, "onChange">) =>
+    !!error &&
+    css`
+      border: 1px solid red;
+    `};
+  
   ::-webkit-input-placeholder {
     color: ${getColor("greyDarken1")};
   }
@@ -33,6 +46,8 @@ interface InputComponentPropsInterface {
   placeholder?: string;
   type?: InputTypes;
   styles?: any;
+  value?: string;
+  error?: string;
 }
 
 const Input: FC<InputComponentPropsInterface> = ({
@@ -40,7 +55,9 @@ const Input: FC<InputComponentPropsInterface> = ({
   name,
   type = InputTypes.TEXT,
   placeholder,
-  styles
+  styles,
+  value,
+  error
 }) => {
   const onChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -50,13 +67,18 @@ const Input: FC<InputComponentPropsInterface> = ({
   );
 
   return (
-    <InputStyled
-      onChange={onChange}
-      name={name}
-      type={type}
-      placeholder={placeholder}
-      css={styles}
-    />
+    <Block styles={[fullHeight, fullWidth, position("relative")]}>
+      <InputStyled
+        onChange={onChange}
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        css={styles}
+        value={value}
+        error={error}
+      />
+      {error && <span css={errorFieldStyles}>{error}</span>}
+    </Block>
   );
 };
 

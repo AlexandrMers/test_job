@@ -8,7 +8,8 @@ export const colors = {
   colorWhite: "#ffffff",
   colorBlack: "#000000",
   green: "#5db675",
-  blue: "#589cf4"
+  blue: "#589cf4",
+  red: "red"
 };
 
 export const getColor = memoizeWith(

@@ -17,6 +17,20 @@ export const inputDecoratedStyles = css`
   line-height: 16px;
   font-weight: 400;
   color: ${getColor("colorBlack")};
+
+  &:focus {
+    outline: 1px solid ${getColor("green")};
+  }
+`;
+
+export const errorFieldStyles = css`
+  color: ${getColor("red")};
+  font-size: 10px;
+  font-weight: 400;
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  font-family: "Open Sans", sans-serif;
 `;
 
 export const display = memoizeWith(
@@ -123,10 +137,26 @@ export const color = memoizeWith(
     `
 );
 
+export const backgroundColor = memoizeWith(
+  identity as IdentityType<string>,
+  (value: string) =>
+    css`
+      background-color: ${value};
+    `
+);
+
 export const position = memoizeWith(
   identity as IdentityType<PositionBlockTypes>,
   (value: PositionBlockTypes) =>
     css`
       position: ${value};
+    `
+);
+
+export const border = memoizeWith(
+  identity as IdentityType<any>,
+  (value: number, color: string) =>
+    css`
+      border: ${value}px solid ${color};
     `
 );
